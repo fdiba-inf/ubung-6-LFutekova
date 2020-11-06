@@ -21,7 +21,7 @@ public class Palindrome {
             digitCounter++;
         }
 
-        for (int i = digitCounter; i >= 0; i--) {
+        for (int i = digitCounter -1 ; i >= 0; i--) {
             int digit = number % 10;
             reversedNum += digit * Math.pow(10,digitCounter);
         }
