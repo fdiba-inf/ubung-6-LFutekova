@@ -17,10 +17,13 @@ public class Palindrome {
         int reversedNum = 0;
 
         while(tempNum != 0){
-            int digit = tempNum % 10;
             tempNum /= 10;
-            reversedNum += digit * Math.pow(10,digitCounter);
             digitCounter++;
+        }
+
+        for (int i = digitCounter; i >= 0; i--) {
+            int digit = number % 10;
+            reversedNum += digit * Math.pow(10,digitCounter);
         }
 
         if(number == reversedNum){
