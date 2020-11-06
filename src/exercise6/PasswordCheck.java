@@ -7,28 +7,29 @@ public class PasswordCheck {
 
         Scanner input = new Scanner(System.in);
 
-        boolean onlyLettersOrDigits = true;
+        boolean noSymbols = true;
         int digitCounter = 0;
-        int characterCount = 0;
-
-        System.out.print("Enter Password: ");
-
         while(true){
+            System.out.print("Enter Password: ");
             String password = input.next();
-            char symbol = password.charAt(0);
-            if(Character.isLetterOrDigit(symbol)){
-                characterCount++;
-                if(Character.isDigit(symbol)){
+
+            if (password.length() < 8) {
+                continue;
+            }
+
+            for (int i = 0; i < password.length(); i++) {
+                if(!Character.isLetterOrDigit(password.charAt(i))){
+                    noSymbols = false;
+                }
+                if(Character.isDigit(password.charAt(i))){
                     digitCounter++;
                 }
-            }else{onlyLettersOrDigits = false;}
+            }
 
-            if(digitCounter>=2 && characterCount>=8 && onlyLettersOrDigits){
+            if(noSymbols && digitCounter >= 2){
+                System.out.println("Password valid!");
                 break;
-            }else if(!onlyLettersOrDigits){break;}
-
+            }
         }
-
-        System.out.println("Password valid!");
     }
 }
