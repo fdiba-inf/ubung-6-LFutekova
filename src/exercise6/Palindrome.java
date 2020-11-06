@@ -13,6 +13,7 @@ public class Palindrome {
         assert number > 0;
 
         int tempNum = number;
+        int ogNum = number;
         int digitCounter = 0;
         int reversedNum = 0;
 
@@ -23,10 +24,11 @@ public class Palindrome {
 
         for (int i = digitCounter -1 ; i >= 0; i--) {
             int digit = number % 10;
-            reversedNum += digit * Math.pow(10,digitCounter);
+            number /= 10;
+            reversedNum += digit * Math.pow(10,i);
         }
 
-        if(number == reversedNum){
+        if(ogNum == reversedNum){
             palindrome = true;
         }
 
