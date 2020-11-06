@@ -9,10 +9,16 @@ public class PasswordCheck {
 
         boolean noSymbols = true;
         int digitCounter = 0;
+        String password;
+
         while(true){
             System.out.print("Enter Password: ");
-            String password = input.next();
-
+            if(input.hasNext()) {
+                password = input.next();
+            }else{
+                System.out.println("Shit");
+                break;
+            }
             if (password.length() < 8) {
                 continue;
             }
