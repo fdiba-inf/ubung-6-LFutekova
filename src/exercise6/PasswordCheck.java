@@ -12,7 +12,7 @@ public class PasswordCheck {
         String password;
         System.out.print("Enter Password: ");
 
-        while(true){
+        while(noSymbols && digitCounter < 2){
             if(input.hasNext()) {
                 password = input.next();
             }else{
@@ -31,11 +31,7 @@ public class PasswordCheck {
                     digitCounter++;
                 }
             }
-
-            if(noSymbols && digitCounter >= 2){
-                System.out.println("Password valid!");
-                break;
-            }
         }
+        System.out.println("Password valid!");
     }
 }
